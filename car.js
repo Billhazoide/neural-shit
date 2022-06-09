@@ -11,14 +11,17 @@ class Car {
     this.friction=0.05
     this.angle=0
 
+    // Send "this" object car to Sensor
+    this.sensor = new Sensor(this)
     this.controls = new Controls()
   }
 
-  update(){
-    this.#move()
+  update(roadBorders){
+    this.move()
+    this.sensor.update(roadBorders)
   }
 
-  #move(){
+  move(){
     if(this.controls.forward){
       this.speed+=this.acceleration
     }
@@ -75,5 +78,7 @@ class Car {
     ctx.fill()
 
     ctx.restore()
+
+    this.sensor.draw(ctx)
   }
 }
