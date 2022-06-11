@@ -60,51 +60,45 @@ class Sensor {
     }
   }
 
+  // Draw sensors
   draw(ctx){
     for(let i=0; i < this.rayCount;i++){
-      let end = this.rays[i][1]
+      let end
+      // If has any readings
+      // sensors will become red
+      if(this.readings[i]){ 
+        end = this.readings[i]
+
+        ctx.beginPath()
+        ctx.lineCap = "round"
+        ctx.lineWidth = 10
+        ctx.strokeStyle = "red"
+        ctx.moveTo(
+          end.x,
+          end.y
+        )
+        ctx.lineTo(
+          end.x,
+          end.y
+        )
+        ctx.stroke()
       
-      if(this.readings[i]){ end = this.readings[i] }
-
-      // ctx.beginPath()
-      // ctx.lineWidth = 2
-      // ctx.strokeStyle = "yellow"
-      // ctx.moveTo(
-      //   this.rays[i][0].x,
-      //   this.rays[i][0].y
-      // )
-      // ctx.lineTo(
-      //   end.x,
-      //   end.y
-      // )
-      // ctx.stroke()
-      ctx.beginPath()
-      ctx.lineCap = "round"
-      ctx.lineWidth = 10
-      ctx.strokeStyle = "yellow"
-      ctx.moveTo(
-        end.x,
-        end.y
-      )
-      ctx.lineTo(
-        end.x,
-        end.y
-      )
-      ctx.stroke()
-
-      ctx.beginPath()
-      ctx.lineCap = "round"
-      ctx.lineWidth = 10
-      ctx.strokeStyle = "red"
-      ctx.moveTo(
-        end.x,
-        end.y
-      )
-      ctx.lineTo(
-        end.x,
-        end.y
-      )
-      ctx.stroke()
+      } else {
+        end = this.rays[i][1]
+        ctx.beginPath()
+        ctx.lineCap = "round"
+        ctx.lineWidth = 10
+        ctx.strokeStyle = "limegreen"
+        ctx.moveTo(
+          end.x,
+          end.y
+        )
+        ctx.lineTo(
+          end.x,
+          end.y
+        )
+        ctx.stroke()
+      }
     }
   }
 
