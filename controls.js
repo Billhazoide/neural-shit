@@ -4,9 +4,11 @@ class Controls {
     this.left=false
     this.right=false
     this.reverse=false
+    this.space=false
 
     this.#addListeners()
   }
+
   // Hashtag means its private
   #addListeners(){
     // On key down
@@ -15,17 +17,21 @@ class Controls {
         case "ArrowLeft":
           this.left=true
           break;
-
+          
         case "ArrowUp":
           this.forward=true
           break;
-
+          
         case "ArrowDown":
           this.reverse=true
           break;
-
+          
         case "ArrowRight":
           this.right=true
+          break;
+        
+        case " ":
+          this.space=true
           break;
       }
     }
@@ -47,6 +53,9 @@ class Controls {
 
         case "ArrowRight":
           this.right=false
+          break;
+        case "SpaceBar":
+          this.space=false
           break;
       }
     }

@@ -22,9 +22,10 @@ class Road{
   }
 
   getLaneCenter(laneIndex){
-    const laneWidth= this.width/this.laneCount
+    const laneWidth = this.width/this.laneCount
     return this.left + laneWidth /2 + Math.min(laneIndex, this.laneCount -1) * laneWidth
   }
+
   draw(ctx){
     ctx.lineWidth=5
     ctx.strokeStyle="white"

@@ -17,11 +17,11 @@ class Car {
   }
 
   update(roadBorders){
-    this.move()
+    this.#move()
     this.sensor.update(roadBorders)
   }
 
-  move(){
+  #move(){
     if(this.controls.forward){
       this.speed+=this.acceleration
     }
@@ -56,6 +56,9 @@ class Car {
       }
       if(this.controls.right){
         this.angle -= 0.03 * flip
+      }
+      if(this.controls.space){
+        this.y+=Math.sin(this.angle)*this.speed
       }
     }
 
