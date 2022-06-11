@@ -4,7 +4,7 @@ class Sensor {
     this.rayCount = 5
     this.rayLength = 150
     // Angle rays deg
-    this.raySpread = Math.PI/2
+    this.raySpread = Math.PI/1.5
 
     this.rays = []
     this.readings = []
@@ -66,12 +66,25 @@ class Sensor {
       
       if(this.readings[i]){ end = this.readings[i] }
 
+      // ctx.beginPath()
+      // ctx.lineWidth = 2
+      // ctx.strokeStyle = "yellow"
+      // ctx.moveTo(
+      //   this.rays[i][0].x,
+      //   this.rays[i][0].y
+      // )
+      // ctx.lineTo(
+      //   end.x,
+      //   end.y
+      // )
+      // ctx.stroke()
       ctx.beginPath()
-      ctx.lineWidth = 2
+      ctx.lineCap = "round"
+      ctx.lineWidth = 10
       ctx.strokeStyle = "yellow"
       ctx.moveTo(
-        this.rays[i][0].x,
-        this.rays[i][0].y
+        end.x,
+        end.y
       )
       ctx.lineTo(
         end.x,
@@ -80,11 +93,12 @@ class Sensor {
       ctx.stroke()
 
       ctx.beginPath()
-      ctx.lineWidth = 2
-      ctx.strokeStyle = "black"
+      ctx.lineCap = "round"
+      ctx.lineWidth = 10
+      ctx.strokeStyle = "red"
       ctx.moveTo(
-        this.rays[i][1].x,
-        this.rays[i][1].y
+        end.x,
+        end.y
       )
       ctx.lineTo(
         end.x,
