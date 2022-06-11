@@ -1,2 +1,2 @@
 # neural-shit
-Study purpose of neural network
+Car wich should drive itself in the future.
